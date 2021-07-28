@@ -1,7 +1,7 @@
 import api from "../utils/api";
 import React, { Component } from "react";
-import Employee from "./EmployeeTable";
-import Search from "./SearchBox"
+import EmployeeTable from "./EmployeeTable";
+import SearchBox from "./SearchBox"
 
 class Directory extends Component {
   state = {
@@ -14,15 +14,24 @@ class Directory extends Component {
 
 
   // Loads all the data
+  // componentDidMount() {
+  //   api.getUser().then((res) => {
+  //     console.log(res);
+  //     this.setState({
+  //       users: res.data.results,
+  //       filterUsers: res.data.results,
+  //     });
+  //   });
+  // };
+
   componentDidMount() {
-    api.getUser().then((res) => {
-      console.log(res);
-      this.setState({
-        users: res.data.results,
-        filterUsers: res.data.results,
-      });
-    });
-  };
+    api.getUsers().then(res => this.setState({
+
+      users: res.data.results,
+      filterUsers: res.data.results
+
+    })).catch(err => console.log(err))
+  }
 
 
 
@@ -96,7 +105,28 @@ class Directory extends Component {
     });
   };
 
-  
+
+  render() {
+    return (
+      <div>
+
+        {/* Search box input */}
+        <SearchBox 
+
+        employee = {this.state.users}
+        searchBtn = {this.searchBtn}
+        inputChange = {this.inputChange} />
+
+        {/* Employee Table info */}
+        <EmployeeTable
+
+        results = {this.state.filterUsers}
+        sortEmployee = {this.sortEmployee} />
+
+      </div>
+    )
+  }
+
 }
 
 export default Directory;
