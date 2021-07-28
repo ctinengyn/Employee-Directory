@@ -82,7 +82,21 @@ class Directory extends Component {
     .catch(err => console.log(err))
   }
 
+  searchBtn = event => {
+    event.preventDefault();
+    if (!this.state.search) {
+      alert("Please enter a name")
+    }
 
+    const { search, users} = this.state;
+    const filterUsers = users.filter(employee => employee.name.first.toLowerCase().includes(search.toLocaleLowerCase()));
+
+    this.setState({
+      filterUsers
+    });
+  };
+
+  
 }
 
 export default Directory;
