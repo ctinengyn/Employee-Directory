@@ -11,8 +11,6 @@ class Directory extends Component {
     order: "",
   };
 
-
-
   // Loads all the data
   // componentDidMount() {
   //   api.getUser().then((res) => {
@@ -26,7 +24,6 @@ class Directory extends Component {
 
   componentDidMount() {
     api.getUsers().then(res => this.setState({
-
       users: res.data.results,
       filterUsers: res.data.results
 

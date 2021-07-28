@@ -6,18 +6,17 @@ function SearchBox(props) {
     return (
         <div className="container">
 
-
             <header className="z-depth-3 col s12" >
                 <div className="row">
 
                     <div className="col s6">
 
-                        <h3 className="right-align headerText">Employee Directory</h3>
+                        <h3 className="right-align text">Employee Directory</h3>
 
                     </div>
                     <div className="col s6">
 
-                        <div className="col s6 inputAndButton right-align">
+                        <div className="col s6 fade right-align">
 
                             <input
                                 onChange={props.inputChange}

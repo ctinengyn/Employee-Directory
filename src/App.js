@@ -1,15 +1,12 @@
-import "./App.css";
-import Directory from "./components/Directory";
-import React from "react";
+import React from 'react';
+import Directory from "./components/Directory"
+
 
 function App() {
-    return (
-        <div className="App">
-            <Directory>
+  return (
+    <Directory />
 
-            </Directory>
-        </div>
-    );
-};
+  )
+}
 
 export default App;
