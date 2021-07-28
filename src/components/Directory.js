@@ -11,6 +11,8 @@ class Directory extends Component {
     order: "",
   };
 
+
+
   // Loads all the data
   componentDidMount() {
     api.getUser().then((res) => {
@@ -22,22 +24,55 @@ class Directory extends Component {
     });
   };
 
+
+
   // ASC stands for ascending and the DESC stands for descending
   sortEmployee = () => {
       const filter = this.state.filterUsers;
       if (this.state.order === "asc") {
-          const sort = filter.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1)
+          const sorts = filter.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1)
 
-          console.log(sort)
+          console.log(sorts)
 
           this.setState({
-              filterUsers: sort,
+              filterUsers: sorts,
               order: "desc"
           })
       } else {
 
-      }
-  }
+        const sorts = filter.sort((a, b) => (a.name.first > b.name.first) ? -1 : 1) console.log(sorts)
+
+        this.setState ({
+          filterUsers: sorts,
+          order: "desc"
+        })
+
+      } else {
+
+        const sorts = filter.sort((a, b) => (a.name.first > a.name.first) ? -1 : 1) console.log(sorts)
+
+        this.setState ({
+
+          filterUsers: sorts,
+          order: "asc"
+        });
+      };
+  };
+
+
+
+  inputChange = event => {
+
+    const users = this.state.users;
+    const UserInput = event.target.value;
+    const filterUsers = users.filter(users => users.name.first.toLowerCase().indexOf(UserInput.toLowerCase()) > -1)
+
+    this.setState ({
+      filterUsers,
+    });
+  };
+
+  
 
 
 }
