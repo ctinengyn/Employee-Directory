@@ -49,26 +49,20 @@ class Directory extends Component {
           })
       } else {
 
-        const sorts = filter.sort((a, b) => (a.name.first > b.name.first) ? -1 : 1) console.log(sorts)
+        const sorts = filter.sort((a, b) => (a.name.first > b.name.first) ? -1 : 1) 
+        
+        console.log(sorts)
 
-        this.setState ({
-          filterUsers: sorts,
-          order: "desc"
-        })
-
-      } else {
-
-        const sorts = filter.sort((a, b) => (a.name.first > a.name.first) ? -1 : 1) console.log(sorts)
-
-        this.setState ({
-
+        this.setState({
           filterUsers: sorts,
           order: "asc"
-        });
+        })
+
       };
   };
 
 
+  // Shows on screen when the names match
 
   inputChange = event => {
 
@@ -82,7 +76,7 @@ class Directory extends Component {
   };
 
   searchEmployee = () => {
-    api.getUser().then(res => this.setState({
+    api.getUsers().then(res => this.setState({
 
       filterUsers:res.data.results,
       users: res.data.results
