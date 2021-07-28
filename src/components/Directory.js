@@ -120,7 +120,6 @@ class Directory extends Component {
       </div>
     )
   }
-
 }
 
 export default Directory;
