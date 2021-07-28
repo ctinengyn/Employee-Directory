@@ -72,7 +72,15 @@ class Directory extends Component {
     });
   };
 
-  
+  searchEmployee = () => {
+    api.getUser().then(res => this.setState({
+
+      filterUsers:res.data.results,
+      users: res.data.results
+    }))
+
+    .catch(err => console.log(err))
+  }
 
 
 }
