@@ -10,6 +10,7 @@ function EmployeeTable(props) {
           <th></th>
           <th onClick={props.sortEmployee}>Name</th>
           <th>Phone</th>
+          <th>Email</th>
           <th>Date of Birth</th>
         </tr>
       </thead>
