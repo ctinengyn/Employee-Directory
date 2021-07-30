@@ -12,23 +12,23 @@ class Directory extends Component {
   };
 
   // Loads all the data
-  // componentDidMount() {
-  //   api.getUser().then((res) => {
-  //     console.log(res);
-  //     this.setState({
-  //       users: res.data.results,
-  //       filterUsers: res.data.results,
-  //     });
-  //   });
-  // };
-
   componentDidMount() {
-    api.getUsers().then(res => this.setState({
-      users: res.data.results,
-      filterUsers: res.data.results
+    api.getUser().then((res) => {
+      console.log(res);
+      this.setState({
+        users: res.data.results,
+        filterUsers: res.data.results,
+      });
+    });
+  };
 
-    })).catch(err => console.log(err))
-  }
+  // componentDidMount() {
+  //   api.getUser().then(res => this.setState({
+  //     users: res.data.results,
+  //     filterUsers: res.data.results
+
+  //   })).catch(err => console.log(err))
+  // }
 
 
 
